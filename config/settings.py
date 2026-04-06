@@ -68,24 +68,24 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 import dj_database_url
 
-# DATABASES = {
-#     "default": dj_database_url.config(
-#         default=os.getenv("DATABASE_URL"),
-#         conn_max_age=600,
-#         ssl_require=True
-#     )
-# }
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",      # your local DB name
-        "USER": "postgres",          # your PostgreSQL username
-        "PASSWORD": "Sanket@2146",          # your PostgreSQL password
-        "HOST": "localhost",         # or 127.0.0.1
-        "PORT": "5432",
-    }
+    "default": dj_database_url.config(
+        default=os.getenv("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "postgres",      # your local DB name
+#         "USER": "postgres",          # your PostgreSQL username
+#         "PASSWORD": "Sanket@2146",          # your PostgreSQL password
+#         "HOST": "localhost",         # or 127.0.0.1
+#         "PORT": "5432",
+#     }
+# }
 
 # ========================
 # Password validation
